@@ -1,0 +1,11 @@
+.cart_b{
+    background-color: yellow;
+}
+
+.buy_b{
+    background-color: orange;
+}
+
+.cart_b, .buy_b{
+    border: 3px solid black;
+}
