@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7e</title>
+    </head>
+
+    <body>
+
+			<script>
+
+				let degrees = 86;
+
+				let unit = 'F';
+
+				convertTemperature(degrees, unit);
+
+				function convertTemperature(degrees, unit){
+
+					if (unit === 'F'){
+						let c = convertToCelsius(degrees);
+						console.log(`${c} C`);
+					}
+					else if (unit === 'C'){
+						let k = convertToFahrenheit(degrees);
+						console.log(`${k} F`);
+					}
+					else{
+						console.log('Incorrect unit!! Try again.');
+					}
+
+				}
+
+
+				function convertToCelsius(degrees){
+
+					let celsius = (degrees-32)*5/9;
+
+					return celsius;
+				}
+
+				function convertToFahrenheit(degrees){
+
+					let far = (degrees*9/5)+32;
+
+					return far;
+				}
+
+			</script>
+        
+    </body>
+</html>
