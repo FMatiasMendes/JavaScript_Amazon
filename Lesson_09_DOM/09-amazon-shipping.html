@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>09-Amazon</title>
+	</head>
+
+	<body>
+
+		<p>Amazon Shipping Calculator</p>
+		<p class="js-under"></p>
+		<p class="js-over"></p>
+
+		<input onkeydown="
+			//event.key only exists on input onkeydown
+			handleCostkeydown(event.key);
+		" placeholder="Cost of order" class="js-cost-input">
+
+		<button onclick="
+			totalCost();
+		
+		">Calculate</button>
+
+		<p class="js-cost"></p>
+
+		<script>
+
+			//Had to put a parameter in the function because the event.key only exists on input onkeydown
+			function handleCostkeydown(event){
+				console.log(event);
+
+				if (event === 'Enter'){
+					totalCost();
+				}
+			}
+
+			function totalCost(){
+
+				// Number() its a native JS function that converts to numbers
+				let inputElement = Number(document.querySelector('.js-cost-input').value);
+
+				if (inputElement < 40){
+					inputElement += 10;
+					document.querySelector('.js-cost').innerHTML= `$${inputElement}`;
+				}
+				else{
+					document.querySelector('.js-cost').innerHTML= `$${inputElement}`;
+				}
+
+				document.querySelector('.js-under')
+				.innerHTML= 'Orders under $40 = +$10 shipping.';
+			document.querySelector('.js-over')
+				.innerHTML= 'Orders over $40 = FREE shipping.';	
+			}
+
+		</script>
+			
+	</body>
+</html>

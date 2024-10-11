@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>9i</title>
+  </head>
+  <body>
+    <button onclick="
+      let storageQuantity = localStorage.getItem('cart_quantity');
+      storageQuantity = Number(storageQuantity);
+
+      document.querySelector('.js-quantity').innerHTML= `Cart quantity: ${storageQuantity}`;
+    ">Show Quantity</button>
+
+    <button onclick="updateCartQuantity(1);">Add to Cart</button>
+    <button onclick="updateCartQuantity(2);">+2</button>
+    <button onclick="updateCartQuantity(3);">+3</button>
+    <button onclick="updateCartQuantity(4);">+4</button>
+    <button onclick="updateCartQuantity(5);">+5</button>
+    <button onclick="updateCartQuantity(-1);">Remove from cart</button>
+    <button onclick="updateCartQuantity(-2);">-2</button>
+    <button onclick="updateCartQuantity(-3);">-3</button>
+
+    <button onclick="
+      cartQuantity = 0;
+      document.querySelector('.js-quantity').innerHTML= `Cart quantity: ${cartQuantity}`;
+      localStorage.setItem('cart_quantity', cartQuantity);
+    ">Reset Cart</button>
+
+    <p class="js-quantity"></p>
+
+    <script>
+      let cartQuantity = 0;
+
+      function updateCartQuantity(items) {
+        if (cartQuantity + items > 10) {
+          alert('The cart is full');
+          return;
+        }
+        
+        if (cartQuantity + items < 0) {
+          alert('Not enough items in the cart');
+          return;
+        }
+        
+        cartQuantity += items;
+        console.log(`Cart quantity: ${cartQuantity}`);
+
+        document.querySelector('.js-quantity').innerHTML= `Cart quantity: ${cartQuantity}`;
+
+        localStorage.setItem('cart_quantity', cartQuantity);
+      }
+
+    </script>
+  </body>
+</html>
