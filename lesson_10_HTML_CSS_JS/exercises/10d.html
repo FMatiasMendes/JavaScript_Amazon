@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>10d</title>
+
+		<style>
+			.request{
+				border: none;
+				padding: 12px 20px;
+				border-radius: 5px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 15px;
+				font-weight: bold;
+				margin-right: 20px;
+				color: white;
+				background-color: black;
+				cursor: pointer;
+			}
+
+			.is-toggled{
+				background-color: lightgray;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<button class="request" onclick="
+			const turn = document.querySelector('.request');
+
+			//more efficient. Does the same of the if code
+			turn.classList.toggle('is-toggled');
+
+/* 
+			if (turn.classList.contains('is-toggled')){
+				turn.classList.remove('is-toggled');
+			}
+			else{
+				turn.classList.add('is-toggled');
+			}
+			 */
+		">Gaming</button>
+
+			
+	</body>
+</html>

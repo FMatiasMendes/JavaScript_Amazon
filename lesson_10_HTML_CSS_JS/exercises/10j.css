@@ -1,0 +1,32 @@
+body{
+    background-color: black;
+}
+
+button{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 25px;
+    color: lightgray;
+    margin: 0px 3px;
+}
+
+.key_dark{
+    background-color: rgb(52, 52, 52);
+}
+
+.key_orange{
+    background-color: orange;
+}
+
+.clear_font{
+    font-size: 18px;
+}
+
+.js-calculation{
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    margin: 0px;
+}

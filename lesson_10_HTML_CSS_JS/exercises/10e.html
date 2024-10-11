@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>10e</title>
+
+		<style>
+			.request{
+				border: none;
+				padding: 12px 20px;
+				border-radius: 5px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 15px;
+				font-weight: bold;
+				margin-right: 20px;
+				color: white;
+				background-color: black;
+				cursor: pointer;
+			}
+
+			.is-toggled{
+				background-color: lightgray;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<button class="request js-gaming" onclick="
+			const turnGaming = document.querySelector('.js-gaming');
+			turnGaming.classList.toggle('is-toggled');
+		">Gaming</button>
+
+		<button class="request js-music" onclick="
+		const turnMusic = document.querySelector('.js-music');
+		turnMusic.classList.toggle('is-toggled');
+		">Music</button>
+
+		<button class="request js-tech" onclick="
+		const turnTech = document.querySelector('.js-tech');
+		turnTech.classList.toggle('is-toggled');
+		">Tech</button>
+			
+	</body>
+</html>
