@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>11m</title>
+    </head>
+    <body>
+
+			<script>
+
+				const array1 = ['apple', 'grape', 'apple', 'apple'];
+				const array2 = ['john', 'mary', 'phill', 'mary', 'phill', 'phil'];
+
+				function countWords (words){
+
+					const names = {};
+
+					for (let i = 0; i < words.length; i++){
+
+						const word = words[i];
+
+						if (!names[word]){
+							names[word] = 1;
+						}
+						else{
+							names[word]++;
+						}						
+					}
+
+					return names;
+					
+				}
+
+				console.log (countWords(array1));				
+
+			</script>
+        
+    </body>
+</html>
