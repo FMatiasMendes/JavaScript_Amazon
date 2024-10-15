@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>11o</title>
+    </head>
+    <body>
+
+			<script>
+
+				const array1 = ['hello', 'world', 'search', 'good'];
+				const array2 = ['not', 'found'];
+
+				function searchWord (array, word){
+
+					let index = -1;
+
+					for (let i = 0; i < array.length; i++){						
+						if (array[i] === word){
+							index = i;
+							break;		
+						}
+					}
+					return index;
+				}
+
+				console.log(searchWord(array1, 'search'));		
+
+			</script>
+        
+    </body>
+</html>
