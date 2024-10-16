@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>12f</title>
+	</head>
+
+	<body>
+
+		<button onclick="
+			addCart();			
+		">Add to cart</button>
+
+		<p class="js-add-text"></p>
+
+		<script>
+
+			let myTimeOut;
+
+			function addCart(){
+
+				clearTimeout(myTimeOut);
+
+				let textElement = document.querySelector('.js-add-text');
+				textElement.innerHTML = 'Added';
+
+				myTimeOut = setTimeout(function(){
+					textElement.innerHTML = '';
+				}, 3000)
+			};
+
+
+
+		</script>
+			
+	</body>
+</html>
