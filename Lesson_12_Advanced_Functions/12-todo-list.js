@@ -65,11 +65,15 @@ const todoList3 = [{
 
 renderTodoList3();
 
-function addTodo3(){
-	const inputElement3 = document.querySelector('.js-name-input-3');
+document.querySelector('.js-add-todo-button')
+	.addEventListener('click', () => {
+		addTodo3();
+	});
 
+function addTodo3(){
+
+	const inputElement3 = document.querySelector('.js-name-input-3');
 	const name3 = inputElement3.value;
-	console.log(name3);
 	const dateInputElement = document.querySelector('.js-due-date-input');
 	const dueDate = dateInputElement.value;
 
@@ -90,17 +94,16 @@ function renderTodoList3(){
 
 	let todoListHTML = '';
 
-	todoList3.forEach(function(todoObject, index){
+	todoList3.forEach((todoObject, index) => {
 
 		const {name, dueDate} = todoObject;
 
 		const html = `
 			<div>${name}</div>
 			<div>${dueDate}</div>			 
-			<button class="delete-todo-button" onclick="
-				todoList3.splice(${index}, 1);
-				renderTodoList3();
-			">Delete</button>
+			<button class="delete-todo-button js-delete-todo-button">
+				Delete
+			</button>
 		`;
 		todoListHTML += html;
 
@@ -108,4 +111,16 @@ function renderTodoList3(){
 
 	document.querySelector('.js-todo-list3').innerHTML = todoListHTML;
 	console.log(todoListHTML);
+
+	//this code must be after we create the button "delete" or else it won't work
+	document.querySelectorAll('.js-delete-todo-button')
+		.forEach((deleteButton, index) => {
+			deleteButton.addEventListener('click', () => {
+				todoList3.splice(index, 1);
+				renderTodoList3();
+			});
+		});
+
+
+
 }

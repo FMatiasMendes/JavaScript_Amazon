@@ -9,7 +9,12 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
   updateScoreElement();
 
+  document.querySelector('.js-auto-play-button')
+    .addEventListener('click', autoPlay);
+  
   function autoPlay(){
+
+    document.querySelector('.js-auto-play-button').innerHTML = 'Stop Playing';
 
     if (!isAutoPlaying){
       intervalId = setInterval(() => {
@@ -21,6 +26,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     else{
       clearInterval(intervalId);
       isAutoPlaying = false;
+      document.querySelector('.js-auto-play-button').innerHTML = 'Auto Play';
     }
   }
 

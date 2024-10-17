@@ -9,7 +9,12 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
   updateScoreElement();
 
+  document.querySelector('.js-auto-play-button')
+    .addEventListener('click', autoPlay);
+  
   function autoPlay(){
+
+    document.querySelector('.js-auto-play-button').innerHTML = 'Stop Playing';
 
     if (!isAutoPlaying){
       intervalId = setInterval(() => {
@@ -21,6 +26,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     else{
       clearInterval(intervalId);
       isAutoPlaying = false;
+      document.querySelector('.js-auto-play-button').innerHTML = 'Auto Play';
     }
   }
 
@@ -49,6 +55,12 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     else if (event.key === 's'){
       playGame('scissors');
     }
+    else if (event.key === 'a'){
+      autoPlay();
+    }
+    else if (event.key === ' '){
+      resetScore ();
+    }    
   });
 
   function playGame(playerMove) {
@@ -124,3 +136,40 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
     return computerMove;
   }
+
+  document.querySelector('.js-reset-button')
+    .addEventListener('click', showResetConfirmation);
+
+  function resetScore (){
+
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+  }
+
+  function showResetConfirmation() {
+
+    let buttonSureElement = document.querySelector('.js-are-you-sure-button');
+
+    buttonSureElement.innerHTML = `Are you sure you want to reset the score? 
+    <button class="js-yes-button">Yes</button>
+    <button class="js-no-button">No</button>`;
+
+    document.querySelector('.js-yes-button')
+    .addEventListener('click', () => {
+      resetScore ();
+      hideResetConfirmation();
+    });
+  
+    document.querySelector('.js-no-button')
+    .addEventListener('click', hideResetConfirmation);
+  }
+
+  function hideResetConfirmation() {
+    document.querySelector('.js-are-you-sure-button')
+      .innerHTML = '';
+  }
+
+  
