@@ -62,6 +62,9 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid').
 	innerHTML = productsHTML;
 
+//variable to save timeouts for different id's
+const addedMessageTimeouts = {};
+
 //to make the "Add to Cart" button add the products to cart
 document.querySelectorAll('.js-add-to-cart')
 	.forEach((button) => {
@@ -109,12 +112,21 @@ document.querySelectorAll('.js-add-to-cart')
 			//Added to cart message
 			const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
 			addedMessage.classList.add('js-added-to-cart-visible');
+
+			//Remove "Added" message
+			//Check if there's a previous timeout for this product
+			const previousTimeOutId = addedMessageTimeouts[productId];
+
+			if (previousTimeOutId){
+				clearTimeout(previousTimeOutId);
+			}
+
+			const timeoutId = setTimeout(() => {
+        addedMessage.classList.remove('js-added-to-cart-visible');
+      }, 2000);
+
+			addedMessageTimeouts[productId] = timeoutId;
+
 		});
+
 	});
-
-
-
-
-
-
-
