@@ -144,6 +144,11 @@
   opacity: 0;
 }
 
+/* to make the "Added to cart" maessage visible */
+.js-added-to-cart-visible{
+  opacity: 1;
+}
+
 .added-to-cart img {
   height: 20px;
   margin-right: 5px;
