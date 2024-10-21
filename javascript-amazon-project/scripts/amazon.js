@@ -1,7 +1,9 @@
-//to import variable cart from cart.js file
+//to import variable cart from cart.js
 import {cart, addToCart} from '../data/cart.js';
-//to import variable products from products.js file
+//to import variable products from products.js
 import {products} from '../data/products.js';
+//to import function formatCurrency from money.js
+import {formatCurrency} from './utils/money.js';
 
 //variable to save the html data from the forEach product function
 let productsHTML = '';
@@ -29,7 +31,7 @@ products.forEach((product) => {
 		</div>
 
 		<div class="product-price">
-			$${(product.priceCents / 100).toFixed(2 )}
+			$${formatCurrency(product.priceCents)}
 		</div>
 
 		<div class="product-quantity-container">
