@@ -1,5 +1,5 @@
 //to import variable cart from cart.js
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 //to import variable products from products.js
 import {products} from '../data/products.js';
 //to import function formatCurrency from money.js
@@ -64,24 +64,19 @@ products.forEach((product) => {
 	
 });
 
-updateCartQuantity ();
+function updateCartQuantity() {
+  
+  const cartQuantity = calculateCartQuantity();
+
+  document.querySelector('.js-cart-quantity')
+    .innerHTML = cartQuantity;
+}
+
+updateCartQuantity();
 
 //to show products list on html
 document.querySelector('.js-products-grid').
 	innerHTML = productsHTML;
-
-function updateCartQuantity (){
-
-	let cartQuantity = 0;
-
-	cart.forEach((cartItem) => {
-		cartQuantity += cartItem.quantity;
-	});
-
-	document.querySelector('.js-cart-quantity')
-		.innerHTML = cartQuantity;
-
-};
 
 //to make the "Add to Cart" button add the products to cart
 document.querySelectorAll('.js-add-to-cart')

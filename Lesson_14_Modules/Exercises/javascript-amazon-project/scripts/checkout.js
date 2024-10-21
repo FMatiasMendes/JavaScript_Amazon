@@ -1,5 +1,5 @@
 //to import from cart.js
-import {cart, removeFromCart} from '../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity} from '../data/cart.js';
 //to import from cart.js
 import {products} from '../data/products.js';
 //to import from money.js
@@ -120,16 +120,12 @@ document.querySelectorAll('.js-delete-link')
 		});
 	});
 
-function updateCartQuantity (){
-	let cartQuantity = 0;
+function updateCartQuantity() {
 
-	cart.forEach((cartItem) => {
-		cartQuantity += cartItem.quantity;
-	});
+	const cartQuantity = calculateCartQuantity();
 
 	document.querySelector('.js-return-to-home-link')
-		.innerHTML = `${cartQuantity} items`;
-
+	.innerHTML = `${cartQuantity} items`;
 }
 
-updateCartQuantity ();
+updateCartQuantity();
