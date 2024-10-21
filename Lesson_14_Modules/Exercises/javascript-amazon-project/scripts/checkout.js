@@ -137,19 +137,24 @@ document.querySelectorAll('.js-delete-link')
 		.forEach((link) => {
 			link.addEventListener('click', () => {
 				const productId = link.dataset.productId;
-				const container = document.querySelector(
-					`.js-cart-item-container-${productId}`);
+				let quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
+				const newQuantity = Number(quantityInput.value);
 
-			container.classList.remove('is-editing-quantity');
-			let quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
-			const newQuantity = Number(quantityInput.value);
+				//to check if quantity is a valid number
+				if (newQuantity < 0 || newQuantity >= 1000) {
+					alert('Quantity must be at least 0 and less than 1000');
+					return;
+				}
 
-			updateQuantity(productId, newQuantity);
+				updateQuantity(productId, newQuantity);
 
-			const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
-      quantityLabel.innerHTML = newQuantity;
+				const container = document.querySelector(`.js-cart-item-container-${productId}`);
+				container.classList.remove('is-editing-quantity');
 
-      updateCartQuantity();
+				const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
+				quantityLabel.innerHTML = newQuantity;
+
+				updateCartQuantity();
 
 		});
 	});
