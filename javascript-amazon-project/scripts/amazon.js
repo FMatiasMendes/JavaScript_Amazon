@@ -1,3 +1,5 @@
+//to import variable cart from cart.js file
+import {cart} from '../data/cart.js';
 
 //variable to save the html data from the forEach product function
 let productsHTML = '';
