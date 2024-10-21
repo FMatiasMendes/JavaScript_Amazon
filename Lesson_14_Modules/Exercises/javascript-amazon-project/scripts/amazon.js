@@ -64,6 +64,8 @@ products.forEach((product) => {
 	
 });
 
+updateCartQuantity ();
+
 //to show products list on html
 document.querySelector('.js-products-grid').
 	innerHTML = productsHTML;
