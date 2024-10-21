@@ -32,6 +32,10 @@
   align-items: start;
 }
 
+.quantity-input{
+  width: 30px;
+}
+
 @media (max-width: 1000px) {
   .main {
     max-width: 500px;
