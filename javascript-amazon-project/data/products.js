@@ -78,6 +78,24 @@ const product1 = new Product({
   ]
 });
 
+//Just to test date
+//const date = new Date ();
+//console.log(date); 
+//console.log(date.toLocaleTimeString());
+
+
+/* console.log(this);
+
+const object2 = {
+  a: 2,
+  b: this.a
+} */
+/* 
+function logThis() {
+  console.log(this);
+} */
+
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
