@@ -1,20 +1,21 @@
 class Cart  {
 	cartItems;
-
-	localStorageKey;
+	//# to make it private. Only accessed inside de class.
+	#localStorageKey;
 
 	constructor(localStorakeKey){
 		//to define localStorageKey
-		this.localStorageKey = localStorakeKey;
+		this.#localStorageKey = localStorakeKey;
 
 		//to initialize the function
-		this.loadFromStorage();
+		this.#loadFromStorage();
 	}
 
-	loadFromStorage(){
+	//# to make it private. Only accessed inside de class.
+	#loadFromStorage(){
 		//same as -> loadFromStorage: function(){
 	
-		this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+		this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
 		
 		//default value for cart if storage is empty
 		if (!this.cartItems) {
@@ -31,7 +32,7 @@ class Cart  {
 	};
 
 	saveToStorage (){
-		localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+		localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
 	};
 
 	addToCart (productId){
